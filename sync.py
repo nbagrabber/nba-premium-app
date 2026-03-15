@@ -41,7 +41,7 @@ def sync():
                 status, sentiment_score, intel_summary, confidence
             FROM predictions 
             WHERE is_premium = 1 
-            AND commence_time >= datetime('now', '-6 hours')
+            AND commence_time >= datetime('now', '-24 hours')
             ORDER BY created_at DESC
         ) GROUP BY game_id
         ORDER BY commence_time ASC
