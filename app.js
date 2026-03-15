@@ -36,12 +36,26 @@ function closeMatchDetails() {
     document.body.style.overflow = ''; // Restore scroll
 }
 
-// Telegram Mini App Initialization (Global placeholder)
+// Telegram Mini App Initialization
 if (window.Telegram && window.Telegram.WebApp) {
     const webapp = window.Telegram.WebApp;
     webapp.expand();
     webapp.ready();
     webapp.headerColor = '#000000';
+
+    // Populate user profile
+    const user = webapp.initDataUnsafe.user;
+    if (user) {
+        if (document.getElementById('user-name')) {
+            document.getElementById('user-name').innerText = user.username || (user.first_name + ' ' + (user.last_name || ''));
+        }
+        if (user.photo_url) {
+            const avatarDiv = document.querySelector('#view-profile .w-full.h-full');
+            if (avatarDiv) {
+                avatarDiv.style.backgroundImage = `url('${user.photo_url}')`;
+            }
+        }
+    }
 }
 
 // Add haptic feedback simulation
