@@ -62,10 +62,6 @@ function renderMatches() {
     });
 }
 
-function switchView(viewId) {
-    if (viewId === 'predictions') renderMatches();
-    // ... rest of switchView logic
-
 function showMatchDetails(matchId) {
     const match = allMatches.find(m => m.id === matchId);
     if (!match) return;
