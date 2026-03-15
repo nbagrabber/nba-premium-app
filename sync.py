@@ -32,16 +32,20 @@ def sync():
         print("❌ Таблица 'predictions' не найдена в БД")
         return
 
-    # Выбираем только премиум прогнозы
+    # Выбираем только актуальные премиум прогнозы (без дублей)
     cursor.execute("""
-        SELECT 
-            id, game_id, commence_time, home_team, away_team, 
-            bet_type, pick, odds, line, our_prob, edge, 
-            status, sentiment_score, intel_summary, confidence
-        FROM predictions 
-        WHERE is_premium = 1
-        ORDER BY created_at DESC 
-        LIMIT 20
+        SELECT * FROM (
+            SELECT 
+                id, game_id, commence_time, home_team, away_team, 
+                bet_type, pick, odds, line, our_prob, edge, 
+                status, sentiment_score, intel_summary, confidence
+            FROM predictions 
+            WHERE is_premium = 1 
+            AND commence_time >= datetime('now', '-6 hours')
+            ORDER BY created_at DESC
+        ) GROUP BY game_id
+        ORDER BY commence_time ASC
+        LIMIT 10
     """)
     
     rows = cursor.fetchall()
