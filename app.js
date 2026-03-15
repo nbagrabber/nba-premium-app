@@ -1,6 +1,6 @@
 let allMatches = [];
 
-async def loadMatches() {
+async function loadMatches() {
     try {
         const response = await fetch('data/matches.json');
         if (!response.ok) throw new Error('Failed to load matches');
