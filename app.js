@@ -1,3 +1,100 @@
+let allMatches = [];
+
+async def loadMatches() {
+    try {
+        const response = await fetch('data/matches.json');
+        if (!response.ok) throw new Error('Failed to load matches');
+        allMatches = await response.json();
+        renderMatches();
+    } catch (err) {
+        console.error('Error loading matches:', err);
+    }
+}
+
+function renderMatches() {
+    const list = document.querySelector('#view-predictions section');
+    if (!list) return;
+    
+    // Keep the header
+    const header = list.querySelector('h2');
+    list.innerHTML = '';
+    if (header) list.appendChild(header);
+
+    if (allMatches.length === 0) {
+        list.innerHTML += '<div class="glass p-8 rounded-2xl text-center text-slate-500">Нет активных прогнозов</div>';
+        return;
+    }
+
+    allMatches.forEach(match => {
+        const card = document.createElement('div');
+        card.className = "glass-card rounded-2xl overflow-hidden group cursor-pointer active:scale-[0.98] transition-all mb-4";
+        card.onclick = () => showMatchDetails(match.id);
+        
+        const edgeColor = match.edge > 0.12 ? 'text-primary' : (match.edge > 0.1 ? 'text-emerald-400' : 'text-slate-400');
+        const confidence = match.confidence || 'Medium';
+
+        card.innerHTML = `
+            <div class="p-5 space-y-4">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">${match.away_team} @ ${match.home_team}</h3>
+                    <div class="text-right">
+                        <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest mb-1">Edge</p>
+                        <p class="${edgeColor} text-lg font-bold">+${Math.round(match.edge * 1000) / 10}%</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between py-3 border-y border-white/5">
+                    <div class="space-y-1">
+                        <p class="text-[9px] text-slate-500 uppercase font-bold text-left">Odd</p>
+                        <p class="font-mono text-lg text-primary font-bold">${match.odds}</p>
+                    </div>
+                    <div class="space-y-1 text-right">
+                        <p class="text-[9px] text-slate-500 uppercase font-bold">Start</p>
+                        <p class="text-xs font-semibold text-slate-200">${match.commence_time_display || match.commence_time}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                     <span class="bg-primary/20 text-primary text-[9px] font-bold px-2 py-0.5 rounded uppercase">${match.bet_type}</span>
+                     <span class="text-slate-500 text-[10px] font-medium">Pick: ${match.pick} ${match.line || ''}</span>
+                </div>
+            </div>
+        `;
+        list.appendChild(card);
+    });
+}
+
+function switchView(viewId) {
+    if (viewId === 'predictions') renderMatches();
+    // ... rest of switchView logic
+
+function showMatchDetails(matchId) {
+    const match = allMatches.find(m => m.id === matchId);
+    if (!match) return;
+
+    document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 1000) / 10}%`;
+    document.getElementById('detail-odds').innerText = match.odds;
+    const sign = match.line > 0 ? '+' : '';
+    const lineStr = match.line ? ` (${sign}${match.line})` : '';
+    document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
+    
+    // Update description/description logic
+    const desc = document.querySelector('#view-details p.text-slate-300');
+    if (desc) desc.innerText = match.intel_summary || "Анализ матча формируется на основе нейросетевых данных NotebookLM и рыночных аномалий.";
+
+    // Update Title
+    const title = document.querySelector('#view-details h1');
+    if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
+
+    const detailsView = document.getElementById('view-details');
+    detailsView.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeMatchDetails() {
+    const detailsView = document.getElementById('view-details');
+    detailsView.classList.remove('active');
+    document.body.style.overflow = ''; 
+}
+
 function switchView(viewId) {
     // Update Views
     document.querySelectorAll('.view').forEach(view => {
@@ -20,23 +117,14 @@ function switchView(viewId) {
         }
     });
 
-    // Reset scroll
+    if (viewId === 'predictions') renderMatches();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showMatchDetails(matchId) {
-    const detailsView = document.getElementById('view-details');
-    detailsView.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
-}
+// Initialization
+loadMatches();
 
-function closeMatchDetails() {
-    const detailsView = document.getElementById('view-details');
-    detailsView.classList.remove('active');
-    document.body.style.overflow = ''; // Restore scroll
-}
-
-// Telegram Mini App Initialization
 if (window.Telegram && window.Telegram.WebApp) {
     const webapp = window.Telegram.WebApp;
     webapp.expand();
