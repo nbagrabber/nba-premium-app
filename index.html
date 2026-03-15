@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -42,46 +42,13 @@
         <!-- View: Predictions -->
         <div id="view-predictions" class="view active px-4 py-6 space-y-6 page-transition">
             <div class="flex gap-3 overflow-x-auto no-scrollbar py-1">
-                <button class="flex-none px-5 py-2.5 bg-primary text-black rounded-full text-xs font-bold shadow-lg shadow-primary/20">Все матчи</button>
-                <button class="flex-none px-5 py-2.5 glass text-slate-400 rounded-full text-xs font-bold hover:text-white transition-colors">NBA</button>
+                <button id="tab-all" onclick="filterLeague('all')" class="flex-none px-5 py-2.5 bg-primary text-black rounded-full text-xs font-bold shadow-lg shadow-primary/20">Все матчи</button>
+                <button id="tab-nba" onclick="filterLeague('NBA')" class="flex-none px-5 py-2.5 glass text-slate-400 rounded-full text-xs font-bold hover:text-white transition-colors">NBA</button>
             </div>
 
-            <section class="space-y-4">
+            <section id="match-list" class="space-y-4">
                 <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Live Прогнозы</h2>
-                
-                <!-- Match Card 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer active:scale-[0.98] transition-all" onclick="showMatchDetails('lakers_warriors')">
-                    <div class="relative h-44 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJMIhROLU7XHGywOsc5imuq_tJGP44Y6Ige7V7HU189mcZ46ohQCm9K7l-0l3DvYrPwfZCvF_cF38lTjrNgYwVNZkj8196BRZvUen2O5FpeFjEVR4sv1goQmylFYNDxB0VPhzqW307jY_vhP6nNyq2vp2N80-zHyXZjZl3uO6GUzeNC4kIyanO070sgsRzdaMuyM7CJz_Z1n9PwljHCtvZq2VtpFRp1lYZfs6jFpbgeFgK75GocZsc-SvnBWQY0vnpSWNzfyOiNh1t')">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#121a1b] via-[#121a1b]/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 flex gap-2">
-                            <span class="bg-primary/90 text-black text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter neon-glow">Live Analysis</span>
-                            <span class="bg-white/10 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter">NBA</span>
-                        </div>
-                    </div>
-                    <div class="p-5 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">Lakers vs Warriors</h3>
-                            <div class="text-right">
-                                <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest mb-1">Confidence</p>
-                                <p class="text-primary text-xl font-bold text-neon">8.5/10</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between py-4 border-y border-white/5">
-                            <div class="space-y-1">
-                                <p class="text-[10px] text-slate-500 uppercase font-bold">Odd</p>
-                                <p class="font-mono text-xl text-primary font-bold">1.85</p>
-                            </div>
-                            <div class="space-y-1 text-right">
-                                <p class="text-[10px] text-slate-500 uppercase font-bold">Start</p>
-                                <p class="text-sm font-semibold text-slate-200">Сегодня, 04:00</p>
-                            </div>
-                        </div>
-                        <div class="w-full bg-primary py-3.5 rounded-xl text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-white transition-colors">
-                            <span>Открыть разбор</span>
-                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- Matches will be loaded here -->
             </section>
         </div>
 
@@ -276,6 +243,6 @@
         </div>
     </nav>
 
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>

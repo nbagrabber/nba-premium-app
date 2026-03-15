@@ -32,13 +32,14 @@ def sync():
         print("❌ Таблица 'predictions' не найдена в БД")
         return
 
-    # Выбираем последние 20 прогнозов
+    # Выбираем только премиум прогнозы
     cursor.execute("""
         SELECT 
             id, game_id, commence_time, home_team, away_team, 
             bet_type, pick, odds, line, our_prob, edge, 
             status, sentiment_score, intel_summary, confidence
         FROM predictions 
+        WHERE is_premium = 1
         ORDER BY created_at DESC 
         LIMIT 20
     """)

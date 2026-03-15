@@ -1,8 +1,8 @@
-let allMatches = [];
+let currentFilter = 'all';
 
 async function loadMatches() {
     try {
-        const response = await fetch('data/matches.json');
+        const response = await fetch(`data/matches.json?v=${new Date().getTime()}`);
         if (!response.ok) throw new Error('Failed to load matches');
         allMatches = await response.json();
         renderMatches();
@@ -11,8 +11,26 @@ async function loadMatches() {
     }
 }
 
+function filterLeague(league) {
+    currentFilter = league;
+    
+    // Update tab styles
+    document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+        tab.classList.remove('bg-primary', 'text-black', 'shadow-lg', 'shadow-primary/20');
+        tab.classList.add('glass', 'text-slate-400');
+    });
+    
+    const activeTab = document.getElementById('tab-' + (league === 'all' ? 'all' : 'nba'));
+    if (activeTab) {
+        activeTab.classList.remove('glass', 'text-slate-400');
+        activeTab.classList.add('bg-primary', 'text-black', 'shadow-lg', 'shadow-primary/20');
+    }
+    
+    renderMatches();
+}
+
 function renderMatches() {
-    const list = document.querySelector('#view-predictions section');
+    const list = document.getElementById('match-list');
     if (!list) return;
     
     // Keep the header
@@ -20,18 +38,22 @@ function renderMatches() {
     list.innerHTML = '';
     if (header) list.appendChild(header);
 
-    if (allMatches.length === 0) {
+    const filtered = currentFilter === 'all' 
+        ? allMatches 
+        : allMatches.filter(m => m.away_team.includes(currentFilter) || m.home_team.includes(currentFilter) || (m.league && m.league === currentFilter) || currentFilter === 'NBA'); 
+        // Note: Currently syncing mostly NBA, but added flexible filter logic
+
+    if (filtered.length === 0) {
         list.innerHTML += '<div class="glass p-8 rounded-2xl text-center text-slate-500">Нет активных прогнозов</div>';
         return;
     }
 
-    allMatches.forEach(match => {
+    filtered.forEach(match => {
         const card = document.createElement('div');
         card.className = "glass-card rounded-2xl overflow-hidden group cursor-pointer active:scale-[0.98] transition-all mb-4";
         card.onclick = () => showMatchDetails(match.id);
         
         const edgeColor = match.edge > 0.12 ? 'text-primary' : (match.edge > 0.1 ? 'text-emerald-400' : 'text-slate-400');
-        const confidence = match.confidence || 'Medium';
 
         card.innerHTML = `
             <div class="p-5 space-y-4">
@@ -68,15 +90,13 @@ function showMatchDetails(matchId) {
 
     document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 1000) / 10}%`;
     document.getElementById('detail-odds').innerText = match.odds;
-    const sign = match.line > 0 ? '+' : '';
+    const sign = (match.line && match.line > 0) ? '+' : '';
     const lineStr = match.line ? ` (${sign}${match.line})` : '';
     document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
     
-    // Update description/description logic
     const desc = document.querySelector('#view-details p.text-slate-300');
     if (desc) desc.innerText = match.intel_summary || "Анализ матча формируется на основе нейросетевых данных NotebookLM и рыночных аномалий.";
 
-    // Update Title
     const title = document.querySelector('#view-details h1');
     if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
 
@@ -92,7 +112,6 @@ function closeMatchDetails() {
 }
 
 function switchView(viewId) {
-    // Update Views
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
         if (view.id === 'view-' + viewId) {
@@ -100,25 +119,23 @@ function switchView(viewId) {
         }
     });
 
-    // Update Nav Buttons
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('text-primary');
         btn.classList.add('text-slate-500');
-        btn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 0";
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) icon.style.fontVariationSettings = "'FILL' 0";
         
         if (btn.dataset.view === viewId) {
             btn.classList.add('text-primary');
             btn.classList.remove('text-slate-500');
-            btn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 1";
+            if (icon) icon.style.fontVariationSettings = "'FILL' 1";
         }
     });
 
     if (viewId === 'predictions') renderMatches();
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Initialization
 loadMatches();
 
 if (window.Telegram && window.Telegram.WebApp) {
@@ -127,14 +144,15 @@ if (window.Telegram && window.Telegram.WebApp) {
     webapp.ready();
     webapp.headerColor = '#000000';
 
-    // Populate user profile
     const user = webapp.initDataUnsafe.user;
     if (user) {
-        if (document.getElementById('user-name')) {
-            document.getElementById('user-name').innerText = user.username || (user.first_name + ' ' + (user.last_name || ''));
+        const nameEl = document.getElementById('user-name');
+        if (nameEl) {
+            // Priority: Username -> First+Last Name -> First Name
+            nameEl.innerText = user.username ? ('@' + user.username) : (user.first_name + (user.last_name ? ' ' + user.last_name : ''));
         }
         if (user.photo_url) {
-            const avatarDiv = document.querySelector('#view-profile .w-full.h-full');
+            const avatarDiv = document.querySelector('#view-profile .bg-cover');
             if (avatarDiv) {
                 avatarDiv.style.backgroundImage = `url('${user.photo_url}')`;
             }
