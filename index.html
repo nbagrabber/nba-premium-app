@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>NBAGrabber Mini App</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e5ff",
+                        "bg-dark": "#000000",
+                        "card-dark": "#121a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass border-b border-primary/10 px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="bg-primary/20 p-2 rounded-xl animate-glow">
+                <span class="material-symbols-outlined text-primary text-2xl">sports_basketball</span>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white">NBAGrabber</h1>
+                <p class="text-[10px] text-primary/80 font-mono uppercase tracking-widest">Neural Analysis Engine</p>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <button class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                <span class="material-symbols-outlined text-slate-400">notifications</span>
+            </button>
+            <button class="p-2 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">terminal</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto pb-28 no-scrollbar">
+        
+        <!-- View: Predictions -->
+        <div id="view-predictions" class="view active px-4 py-6 space-y-6 page-transition">
+            <div class="flex gap-3 overflow-x-auto no-scrollbar py-1">
+                <button class="flex-none px-5 py-2.5 bg-primary text-black rounded-full text-xs font-bold shadow-lg shadow-primary/20" href="#">Все матчи</button>
+                <button class="flex-none px-5 py-2.5 glass text-slate-400 rounded-full text-xs font-bold hover:text-white transition-colors">NBA</button>
+                <button class="flex-none px-5 py-2.5 glass text-slate-400 rounded-full text-xs font-bold hover:text-white transition-colors">Euroleague</button>
+                <button class="flex-none px-5 py-2.5 glass text-slate-400 rounded-full text-xs font-bold hover:text-white transition-colors">WNBA</button>
+            </div>
+
+            <section class="space-y-4">
+                <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Live Прогнозы</h2>
+                
+                <!-- Match Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer active:scale-[0.98] transition-all" onclick="showMatchDetails('lakers_warriors')">
+                    <div class="relative h-44 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJMIhROLU7XHGywOsc5imuq_tJGP44Y6Ige7V7HU189mcZ46ohQCm9K7l-0l3DvYrPwfZCvF_cF38lTjrNgYwVNZkj8196BRZvUen2O5FpeFjEVR4sv1goQmylFYNDxB0VPhzqW307jY_vhP6nNyq2vp2N80-zHyXZjZl3uO6GUzeNC4kIyanO070sgsRzdaMuyM7CJz_Z1n9PwljHCtvZq2VtpFRp1lYZfs6jFpbgeFgK75GocZsc-SvnBWQY0vnpSWNzfyOiNh1t')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#121a1b] via-[#121a1b]/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2">
+                            <span class="bg-primary/90 text-black text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter neon-glow">Live Analysis</span>
+                            <span class="bg-white/10 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter">NBA</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">Lakers vs Warriors</h3>
+                            <div class="text-right">
+                                <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest mb-1">Confidence</p>
+                                <p class="text-primary text-xl font-bold text-neon">8.5/10</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-4 border-y border-white/5">
+                            <div class="space-y-1">
+                                <p class="text-[10px] text-slate-500 uppercase font-bold">Odd</p>
+                                <p class="font-mono text-xl text-primary font-bold">1.85</p>
+                            </div>
+                            <div class="space-y-1 text-right">
+                                <p class="text-[10px] text-slate-500 uppercase font-bold">Start</p>
+                                <p class="text-sm font-semibold text-slate-200">Сегодня, 04:00</p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-primary py-3.5 rounded-xl text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-white transition-colors">
+                            <span>Открыть разбор</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- View: Analytics -->
+        <div id="view-analytics" class="view px-4 py-8 space-y-8 page-transition">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">monitoring</span>
+                Нейросетевой поток
+            </h2>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-card p-5 rounded-2xl border-l border-primary/20">
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-primary/60 font-mono mb-2">Social Signals</p>
+                    <p class="text-3xl font-bold font-mono text-white">4.2k</p>
+                    <p class="text-[10px] text-slate-500 mt-2 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[10px] text-emerald-400">trending_up</span>
+                        85% positive
+                    </p>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-slate-400 font-mono mb-2">Engine Status</p>
+                    <p class="text-3xl font-bold font-mono text-emerald-400 text-neon">ACTIVE</p>
+                    <p class="text-[10px] text-slate-500 mt-2">Latency: 45ms</p>
+                </div>
+            </div>
+
+            <section class="space-y-4">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Технический лог</h3>
+                <div class="space-y-3">
+                    <div class="glass p-4 rounded-xl border-l-2 border-primary space-y-2">
+                        <div class="flex justify-between items-center text-[10px] font-mono">
+                            <span class="text-primary bg-primary/10 px-2 py-0.5 rounded">DATA_SYNC</span>
+                            <span class="text-slate-500">12:44:02</span>
+                        </div>
+                        <p class="text-sm text-slate-200">Анализ Reddit/Twitter завершен. Выявлено 12 аномалий в составах.</p>
+                        <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-full animate-pulse shadow-[0_0_8px_#00e5ff]"></div>
+                        </div>
+                    </div>
+
+                    <div class="glass p-4 rounded-xl border-l-2 border-emerald-500 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-emerald-500 text-2xl">verified_user</span>
+                        <div>
+                            <p class="text-sm font-medium text-slate-200">Травмы проверены</p>
+                            <p class="text-[10px] text-slate-500 font-mono">HEALTH_CHECK_OK</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- View: Profile -->
+        <div id="view-profile" class="view px-4 py-10 space-y-10 page-transition">
+            <div class="flex flex-col items-center text-center gap-6">
+                <div class="relative">
+                    <div class="size-24 rounded-full border-2 border-primary/40 p-1 bg-gradient-to-tr from-primary/20 to-transparent">
+                        <div class="w-full h-full rounded-full bg-cover bg-center shadow-2xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBw5rcn0hn9YrKblsTo6D5Ym7bsKp47bzms3FKnYixtkFFdJcHQ9b_C4fARge-vjYcqwBZqEayZRKLvrmHF1CWpl5sEVPLXQpl6yBS-LqCIu-PqgJTUKRqblBvFhc3Tc30IGKDa0U8KwSaoyO5wJdc1dgE7vdUJM6naB0DqmMtw_6N7WKfLLAZPvvpX6yfnN8Y_aEgG6xgEZar9iYAH7FhZuJgIyna3-ausY1PhLhqkJB_rGhFB0gKqpf5_bHA0qGx78J8nijEw6M7r')"></div>
+                    </div>
+                    <div class="absolute -bottom-1 -right-1 bg-primary text-black rounded-full size-7 border-4 border-black flex items-center justify-center">
+                        <span class="material-symbols-outlined text-lg font-bold">check</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Иван Иванов</h2>
+                    <div class="mt-2 inline-flex items-center gap-2 px-4 py-1.5 glass border-primary/20 rounded-full">
+                        <span class="material-symbols-outlined text-primary text-sm">workspace_premium</span>
+                        <span class="text-xs font-bold text-primary uppercase tracking-widest">VIP Подписка</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div class="glass p-5 rounded-2xl space-y-1">
+                    <p class="text-[9px] uppercase tracking-widest text-slate-400">Винрейт</p>
+                    <p class="text-2xl font-mono font-bold text-primary">62.4%</p>
+                </div>
+                <div class="glass p-5 rounded-2xl space-y-1">
+                    <p class="text-[9px] uppercase tracking-widest text-slate-400">ROI</p>
+                    <p class="text-2xl font-mono font-bold text-emerald-400">+12%</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <div class="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="font-semibold text-slate-200">Подписка и платежи</span>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+                </button>
+                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400">
+                            <span class="material-symbols-outlined">settings_suggest</span>
+                        </div>
+                        <span class="font-semibold text-slate-200">Настройки ассистента</span>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+                </button>
+                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400">
+                            <span class="material-symbols-outlined">support_agent</span>
+                        </div>
+                        <span class="font-semibold text-slate-200">Поддержка</span>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- View: Match Details (Detail Overlay) -->
+        <div id="view-details" class="fixed inset-0 z-[60] bg-black/95 view page-transition overflow-y-auto no-scrollbar">
+            <nav class="sticky top-0 p-4 flex items-center justify-between bg-black/80 backdrop-blur-xl z-20 border-b border-white/5">
+                <button class="p-2 glass rounded-full" onclick="closeMatchDetails()">
+                    <span class="material-symbols-outlined text-white">close</span>
+                </button>
+                <h2 class="text-white font-bold">Анализ матча</h2>
+                <button class="p-2 glass rounded-full">
+                    <span class="material-symbols-outlined text-white">share</span>
+                </button>
+            </nav>
+
+            <div class="p-4 space-y-6 pb-24">
+                <div class="relative h-[240px] rounded-3xl overflow-hidden flex flex-col justify-end p-6" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAq7_qmQQplTfUGnNMe_iwMPHSs11-Tb58RoGgdSTB_CsZsiQuV7qBazQVO8ddAlhhOJSLEA2aOymYXhWGfulyWk9sJSaFYgagMBJ4SlFdiNKcknuYEfc4prWTQeKzSFJ21LdKm4ySuymhyWhYGiC8WKmk3MATQKcdGz5Xp-OZwNpG7PkrQw0bPYJkvF8WinYaXzluhHewVH5af1kO2ucFicd_RbZa-XTg1B3Y63OA6fu39wnwNy-Q4yCzi_MwlPPYzTFiqAlDiEp8'); background-size: cover; background-position: center;">
+                    <div class="space-y-2">
+                        <span class="text-primary text-[10px] font-bold uppercase tracking-[0.2em] text-neon">NBA • REGULAR SEASON</span>
+                        <h1 class="text-white text-3xl font-bold leading-tight">Lakers <span class="text-slate-500 text-xl font-light">vs</span> Warriors</h1>
+                        <div class="flex items-center gap-4 text-slate-400 text-xs mt-3">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Сегодня, 04:00</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">pin_drop</span> San Francisco</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">psychology</span>
+                        Анализ нейросети
+                    </h3>
+                    <div class="glass p-5 rounded-2xl">
+                        <p class="text-slate-300 leading-relaxed text-sm">
+                            Модель прогнозирует высокую результативность за счет высокого темпа обеих команд. Энтони Дэвис имеет преимущество в краске, так как Уорриорз играют малым составом. Ожидаемый объем трехочковых от Карри превышает норму на 12.5%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="glass p-5 rounded-2xl">
+                        <p class="text-[9px] uppercase tracking-widest text-slate-500 mb-1">Win Rate</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-mono font-bold text-white">65%</span>
+                            <span class="text-emerald-400 text-xs font-bold">+2.1</span>
+                        </div>
+                    </div>
+                    <div class="glass p-5 rounded-2xl">
+                        <p class="text-[9px] uppercase tracking-widest text-slate-500 mb-1">Volatility</p>
+                        <span class="text-2xl font-mono font-bold text-amber-400">LOW</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black to-transparent z-30">
+                <button class="w-full bg-primary text-black h-16 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl transition-all active:scale-[0.98]">
+                    <span class="material-symbols-outlined font-bold">rocket_launch</span>
+                    <span class="text-lg">Сделать ставку</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glass border-t border-primary/5 px-4 pb-8 pt-3">
+        <div class="flex justify-around items-center max-w-sm mx-auto">
+            <button onclick="switchView('predictions')" class="nav-btn flex flex-col items-center gap-1 text-primary" data-view="predictions">
+                <div class="p-1">
+                    <span class="material-symbols-outlined fill-[1]">diamond</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Прогнозы</span>
+            </button>
+            <button onclick="switchView('analytics')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="analytics">
+                <div class="p-1">
+                    <span class="material-symbols-outlined">query_stats</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Аналитика</span>
+            </button>
+            <button onclick="switchView('profile')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="profile">
+                <div class="p-1">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Профиль</span>
+            </button>
+        </div>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>

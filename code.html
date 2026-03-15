@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00e5ff",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#000000",
+                        "card-dark": "#121a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["Roboto Mono", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">sports_basketball</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight dark:text-slate-100">NBAGrabber</h1>
+<p class="text-xs text-primary font-medium tracking-wide">@nbagrabberbot</p>
+</div>
+</div>
+<button class="p-2 text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<div class="px-4 py-4">
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<a class="flex-none px-4 py-2 bg-primary text-background-dark rounded-full text-sm font-bold" href="#">Все матчи</a>
+<a class="flex-none px-4 py-2 bg-slate-800 text-slate-300 rounded-full text-sm font-bold border border-slate-700" href="#">NBA</a>
+<a class="flex-none px-4 py-2 bg-slate-800 text-slate-300 rounded-full text-sm font-bold border border-slate-700" href="#">Euroleague</a>
+<a class="flex-none px-4 py-2 bg-slate-800 text-slate-300 rounded-full text-sm font-bold border border-slate-700" href="#">WNBA</a>
+</div>
+</div>
+<section class="px-4 space-y-4">
+<h2 class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-4">Сегодняшние прогнозы</h2>
+<div class="bg-card-dark rounded-xl overflow-hidden border border-primary/5 shadow-xl">
+<div class="relative h-40 w-full bg-cover bg-center" data-alt="NBA basketball court arena lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJMIhROLU7XHGywOsc5imuq_tJGP44Y6Ige7V7HU189mcZ46ohQCm9K7l-0l3DvYrPwfZCvF_cF38lTjrNgYwVNZkj8196BRZvUen2O5FpeFjEVR4sv1goQmylFYNDxB0VPhzqW307jY_vhP6nNyq2vp2N80-zHyXZjZl3uO6GUzeNC4kIyanO070sgsRzdaMuyM7CJz_Z1n9PwljHCtvZq2VtpFRp1lYZfs6jFpbgeFgK75GocZsc-SvnBWQY0vnpSWNzfyOiNh1t')">
+<div class="absolute inset-0 bg-gradient-to-t from-card-dark to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="bg-primary/90 text-background-dark text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-tighter">Live Analysis</span>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold dark:text-slate-100">Lakers vs Warriors</h3>
+<div class="text-right">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Confidence</p>
+<p class="text-primary font-bold">8.5/10</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-y border-slate-800">
+<div class="space-y-1">
+<p class="text-xs text-slate-500">Коэффициент</p>
+<p class="font-mono text-lg text-primary">1.85</p>
+</div>
+<div class="space-y-1 text-right">
+<p class="text-xs text-slate-500">Начало</p>
+<p class="text-sm font-medium">Сегодня, 04:00</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span>Читать разбор</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark rounded-xl overflow-hidden border border-primary/5 shadow-xl">
+<div class="relative h-40 w-full bg-cover bg-center" data-alt="Close up of a basketball ball on court" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhySNXchPYnDKug1r4TMNHP3j0LNEw1a0B65NTtaMp_vO5mNsJEn0KXKec4ig1I66YcMpyatanDA2W62iWB2kJhI_cxVZNAs4QPaBj3oFC-6IuuRzITf-t3oLWt-QOF_kH1yBnVmuH_cHO95BdcZIQmmzEUIrqQkBSqDc9nOL9mSc4Lt_gGhbtYDLTsbggbvRNTSM84vDcVQa35cEck2WEHdvezY0NYgh5cEGXlrdfOLE0orFKujRJTtn6r2dh_qvT2D2Gli6L8hAI')">
+<div class="absolute inset-0 bg-gradient-to-t from-card-dark to-transparent"></div>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold dark:text-slate-100">Celtics vs Heat</h3>
+<div class="text-right">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Confidence</p>
+<p class="text-primary font-bold">7.2/10</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-y border-slate-800">
+<div class="space-y-1">
+<p class="text-xs text-slate-500">Коэффициент</p>
+<p class="font-mono text-lg text-primary">2.10</p>
+</div>
+<div class="space-y-1 text-right">
+<p class="text-xs text-slate-500">Начало</p>
+<p class="text-sm font-medium">Сегодня, 02:30</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span>Читать разбор</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-card-dark rounded-xl overflow-hidden border border-primary/5 shadow-xl">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold dark:text-slate-100">Suns vs Mavericks</h3>
+<div class="text-right">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Confidence</p>
+<p class="text-primary font-bold">9.0/10</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-y border-slate-800">
+<div class="space-y-1">
+<p class="text-xs text-slate-500">Коэффициент</p>
+<p class="font-mono text-lg text-primary">1.68</p>
+</div>
+<div class="space-y-1 text-right">
+<p class="text-xs text-slate-500">Начало</p>
+<p class="text-sm font-medium">Завтра, 05:00</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span>Читать разбор</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-card-dark border-t border-slate-800 px-2 pb-6 pt-2 flex justify-around items-center z-50">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="text-primary p-1">
+<span class="material-symbols-outlined fill-[1]">diamond</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tight">Прогнозы</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="text-slate-500 group-hover:text-slate-300 p-1">
+<span class="material-symbols-outlined">query_stats</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Аналитика</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="text-slate-500 group-hover:text-slate-300 p-1">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Подписка</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<div class="text-slate-500 group-hover:text-slate-300 p-1">
+<span class="material-symbols-outlined">person</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tight">Профиль</span>
+</a>
+</nav>
+</body></html>
