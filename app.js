@@ -164,15 +164,26 @@ function renderStats(stats) {
 }
 
 async function loadHistory() {
+    console.log('Fetching history...');
     try {
-        const response = await fetch(`data/history.json?v=${new Date().getTime()}`);
-        if (!response.ok) throw new Error('Failed to load history');
+        const timestamp = new Date().getTime();
+        const response = await fetch(`data/history.json?v=${timestamp}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const history = await response.json();
+        console.log('History loaded:', history.length, 'items');
         renderHistory(history);
     } catch (err) {
-        console.error('Error loading history:', err);
+        console.error('CRITICAL: Error loading history:', err);
         const histList = document.getElementById('history-list');
-        if (histList) histList.innerHTML = '<div class="glass p-4 rounded-2xl text-center text-[10px] text-slate-500">История временно недоступна</div>';
+        if (histList) {
+            histList.innerHTML = `
+                <div class="glass p-4 rounded-2xl text-center">
+                    <p class="text-[10px] text-rose-500 font-bold mb-1">Ошибка загрузки</p>
+                    <p class="text-[9px] text-slate-500">${err.message}</p>
+                    <button onclick="loadHistory()" class="mt-2 text-[9px] text-primary underline">Повторить</button>
+                </div>
+            `;
+        }
     }
 }
 
