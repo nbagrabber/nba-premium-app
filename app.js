@@ -237,6 +237,46 @@ function renderHistory(history) {
     });
 }
 
+async function loadVipStatus() {
+    const badge = document.getElementById('vip-badge');
+    const card = document.getElementById('vip-status-card');
+    const statusText = document.getElementById('vip-status-text');
+    const statusTitle = document.getElementById('vip-status-title');
+    const expiryText = document.getElementById('vip-expiry-text');
+
+    if (!badge || !card) return;
+
+    try {
+        // В будущем здесь будет fetch(`/api/user/${userId}`)
+        // Пока используем имитацию данных из Telegram.WebApp.initDataUnsafe
+        const user = window.Telegram?.WebApp?.initDataUnsafe?.user || { id: 0 };
+        const isVip = false; // По умолчанию
+        const expiryDate = "Не активна";
+
+        if (isVip) {
+            badge.innerHTML = '<span class="text-[9px] font-bold text-black uppercase font-mono">VIP ACTIVE</span>';
+            badge.className = "px-3 py-1 bg-primary rounded-full border border-primary/20 shadow-lg shadow-primary/20";
+            card.classList.remove('border-slate-500');
+            card.classList.add('border-primary', 'bg-primary/5', 'shadow-primary/10');
+            statusText.innerText = "Ваш премиум доступ активен";
+            statusText.className = "text-sm text-primary font-bold";
+            statusTitle.innerText = "Premium VIP Access";
+            expiryText.innerText = `Действует до: ${expiryDate}`;
+            expiryText.className = "text-[10px] text-primary mt-4 uppercase font-bold tracking-widest";
+        } else {
+            badge.innerHTML = '<span class="text-[9px] font-bold text-slate-500 uppercase font-mono">Free User</span>';
+            badge.className = "px-3 py-1 bg-slate-800 rounded-full border border-white/5";
+            card.classList.add('border-slate-500');
+            card.classList.remove('border-primary', 'bg-primary/5', 'shadow-primary/10');
+            statusText.innerText = "Статус подписки не активен";
+            statusTitle.innerText = "Standard Access";
+            expiryText.innerText = "Купите VIP для доступа к инсайдам";
+        }
+    } catch (err) {
+        console.error('Error loading VIP status:', err);
+    }
+}
+
 function switchView(viewId) {
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
@@ -259,8 +299,12 @@ function switchView(viewId) {
     });
 
     if (viewId === 'predictions') loadMatches();
-    if (viewId === 'stats') loadStats();
-    if (viewId === 'history') loadHistory();
+    if (viewId === 'analytics') loadMatches(); // Core uses matches info too
+    if (viewId === 'stats') {
+        loadStats();
+        loadHistory();
+    }
+    if (viewId === 'vip') loadVipStatus();
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }

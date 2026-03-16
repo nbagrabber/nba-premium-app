@@ -52,7 +52,71 @@
             </section>
         </div>
 
-        <!-- View: Algorithm Intelligence (Original Tech View) -->
+        <!-- View: VIP Profile (New) -->
+        <div id="view-vip" class="view px-4 py-8 space-y-8 page-transition">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">workspace_premium</span>
+                    Мой Профиль
+                </h2>
+                <div id="vip-badge" class="px-3 py-1 bg-slate-800 rounded-full border border-white/5">
+                    <span class="text-[9px] font-bold text-slate-500 uppercase font-mono">Free User</span>
+                </div>
+            </div>
+            
+            <div id="vip-status-card" class="glass-card p-6 rounded-3xl border-l-4 border-slate-500 shadow-2xl relative overflow-hidden transition-all duration-500">
+                <div class="absolute -right-8 -top-8 size-32 bg-white/5 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <p id="vip-status-text" class="text-sm text-slate-400 font-medium">Статус подписки не активен</p>
+                    <h3 id="vip-status-title" class="text-2xl font-black text-white mt-1 uppercase tracking-tight">Standard Access</h3>
+                    <p id="vip-expiry-text" class="text-[10px] text-slate-500 mt-4 uppercase font-bold tracking-widest">Купите VIP для доступа к инсайдам</p>
+                </div>
+            </div>
+
+            <section class="space-y-4">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Доступные преимущества</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <div class="size-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">visibility</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">VIP Прогнозы</p>
+                            <p class="text-[10px] text-slate-500">Самые сильные матчи дня (Edge > 12%)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <div class="size-10 bg-emerald-500/10 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-emerald-400">psychology</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Deep AI Analysis</p>
+                            <p class="text-[10px] text-slate-500">Полные разборы и инсайдерский контекст</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Продлить доступ</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <a href="https://t.me/nbagrabber_bot?start=vip" target="_blank" class="flex items-center justify-between p-4 bg-primary rounded-2xl group active:scale-[0.98] transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="size-10 bg-black/10 rounded-xl flex items-center justify-center text-black">
+                                <span class="material-symbols-outlined font-bold">payments</span>
+                            </div>
+                            <div class="text-black">
+                                <p class="text-xs font-black uppercase">Магазин подписок</p>
+                                <p class="text-[10px] font-bold opacity-60">Перейти в бота</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-black">chevron_right</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- View: Algorithm Intelligence (Core) -->
         <div id="view-analytics" class="view px-4 py-8 space-y-8 page-transition">
             <h2 class="text-xl font-bold text-white flex items-center gap-2">
                 <span class="material-symbols-outlined text-primary">terminal</span>
@@ -74,15 +138,6 @@
                             <p class="text-[10px] text-slate-500">Сбор данных из 50+ источников</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
-                        <div class="size-10 bg-emerald-500/10 rounded-xl flex items-center justify-center">
-                            <span class="material-symbols-outlined text-emerald-400">database</span>
-                        </div>
-                        <div>
-                            <p class="text-xs font-bold text-white">Anomaly Detection</p>
-                            <p class="text-[10px] text-slate-500">Поиск валуйных коэффициентов в реальном времени</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -101,7 +156,7 @@
             </section>
         </div>
 
-        <!-- View: Statistics (Formerly Profile) -->
+        <!-- View: Statistics & History Combined -->
         <div id="view-stats" class="view px-4 py-8 space-y-8 page-transition">
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
@@ -113,72 +168,28 @@
                 </div>
             </div>
 
-            <!-- Main Metrics -->
+            <!-- Metrics -->
             <div class="grid grid-cols-1 gap-4">
                 <div class="glass-card p-6 rounded-3xl border-b-4 border-primary/20 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 size-32 bg-primary/5 rounded-full blur-3xl"></div>
                     <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1">Общая прибыль (Units)</p>
-                    <div class="flex items-baseline gap-2">
-                        <h3 id="stat-profit" class="text-5xl font-mono font-bold text-white tracking-tighter">0.00</h3>
-                        <span id="profit-trend" class="text-sm font-bold text-emerald-400">--%</span>
-                    </div>
+                    <h3 id="stat-profit" class="text-4xl font-mono font-bold text-white tracking-tighter">0.00</h3>
                 </div>
-
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="glass p-5 rounded-3xl space-y-1 border border-white/5">
+                    <div class="glass p-5 rounded-3xl border border-white/5">
                         <p class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">ROI %</p>
                         <p id="stat-roi" class="text-2xl font-mono font-bold text-primary">0.0%</p>
                     </div>
-                    <div class="glass p-5 rounded-3xl space-y-1 border border-white/5">
+                    <div class="glass p-5 rounded-3xl border border-white/5">
                         <p class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Win Rate</p>
                         <p id="stat-winrate" class="text-2xl font-mono font-bold text-white">0%</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Detailed Stats -->
+            <!-- History Integration -->
             <section class="space-y-4">
-                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Результативность</h3>
-                <div class="glass p-5 rounded-3xl border border-white/5 flex items-center justify-around text-center">
-                    <div>
-                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Всего</p>
-                        <p id="stat-total" class="text-xl font-mono font-bold text-white">0</p>
-                    </div>
-                    <div class="w-px h-8 bg-white/5"></div>
-                    <div>
-                        <p class="text-[9px] text-emerald-500 font-bold uppercase mb-1">Побед</p>
-                        <p id="stat-wins" class="text-xl font-mono font-bold text-emerald-400">0</p>
-                    </div>
-                    <div class="w-px h-8 bg-white/5"></div>
-                    <div>
-                        <p class="text-[9px] text-rose-500 font-bold uppercase mb-1">Луз</p>
-                        <p id="stat-losses" class="text-xl font-mono font-bold text-rose-500">0</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Current Form / Streak -->
-            <section class="space-y-4">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Текущая форма</h3>
-                    <span class="text-[9px] text-slate-500">Last 10 games</span>
-                </div>
-                <div id="stat-streak" class="flex gap-2 items-center justify-between p-2">
-                    <!-- Streak dots -->
-                </div>
-            </section>
-        </div>
-
-        <!-- View: Match History (Now a separate tab) -->
-        <div id="view-history" class="view px-4 py-8 space-y-8 page-transition">
-            <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">history</span>
-                История матчей
-            </h2>
-            
-            <section class="space-y-4">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Последние результаты</h3>
                 <div id="history-list" class="space-y-3">
-                    <!-- History items will be loaded here -->
                     <div class="glass p-4 rounded-2xl text-center text-[10px] text-slate-500">Загрузка истории...</div>
                 </div>
             </section>
@@ -254,13 +265,13 @@
                 <div class="p-1">
                     <span class="material-symbols-outlined">query_stats</span>
                 </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Анализ</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Core</span>
             </button>
-            <button onclick="switchView('history')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="history">
+            <button onclick="switchView('vip')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="vip">
                 <div class="p-1">
-                    <span class="material-symbols-outlined">history</span>
+                    <span class="material-symbols-outlined">workspace_premium</span>
                 </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">История</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">VIP</span>
             </button>
             <button onclick="switchView('stats')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="stats">
                 <div class="p-1">

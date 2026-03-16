@@ -1,0 +1,547 @@
+2026-03-16 15:43:04,774 - PremiumPipeline - INFO - 🚀 Starting Premium Selection Pipeline (Full Run)...
+2026-03-16 15:43:04,918 - engine.selector - INFO - [selector] Starting Parallel Intelligence Phase...
+2026-03-16 15:43:06,113 - httpx - INFO - HTTP Request: GET https://api.the-odds-api.com/v4/sports/basketball_nba/odds?apiKey=0b61042a0e2c6d9aa5c6454dd05518e6&regions=eu&markets=h2h%2Cspreads%2Ctotals&oddsFormat=decimal "HTTP/1.1 200 OK"
+2026-03-16 15:43:06,167 - engine.odds_monitor - INFO - [odds_monitor] Updated odds for 8 games.
+2026-03-16 15:43:06,169 - engine.selector - INFO - [selector] Gathered 8 analysis tasks. Running...
+2026-03-16 15:43:09,872 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:09,958 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:09,982 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:10,017 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,024 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,065 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,067 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,067 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,070 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,071 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,072 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,072 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,072 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,080 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,080 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,086 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,086 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,088 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,105 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,198 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:10,258 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:10,366 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:10,397 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:10,475 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:10,478 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,478 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,479 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,487 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,490 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,581 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:10,590 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,592 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,612 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:10,622 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,665 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,864 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,868 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:10,886 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:11,000 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:11,042 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:11,059 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:11,060 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:11,137 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,138 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,159 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:11,259 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:11,296 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:11,359 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:12,123 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,170 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:12,172 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:12,172 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:12,173 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:12,174 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,376 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,377 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,509 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,665 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:12,706 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:12,831 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:12,873 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:12,933 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:13,374 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:13,407 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:13,446 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:14,464 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:14,926 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:15,220 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,606 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,753 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,762 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,788 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,804 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,814 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:15,966 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:19,394 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,394 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,394 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:19,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:43:21,015 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Los Angeles Lakers @ Houston Rockets: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,125 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Phoenix Suns @ Boston Celtics: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,147 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Orlando Magic @ Atlanta Hawks: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,289 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Portland Trail Blazers @ Brooklyn Nets: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,422 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Memphis Grizzlies @ Chicago Bulls: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,546 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: San Antonio Spurs @ Los Angeles Clippers: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,635 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Golden State Warriors @ Washington Wizards: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,635 - engine.intelligence - ERROR - [intelligence] Error analyzing NBA: Dallas Mavericks @ New Orleans Pelicans: Error in compaction: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:21,677 - engine.selector - INFO - [selector] Intelligence Phase complete. 8 items in report.
+2026-03-16 15:43:21,678 - PremiumPipeline - INFO - ✅ Intelligence Phase complete. Analyzed 8 games.
+2026-03-16 15:43:21,678 - engine.selector - INFO - [selector] Selecting Premium Picks...
+2026-03-16 15:43:21,687 - PremiumPipeline - INFO - 🔥 Selected 2 premium picks!
+2026-03-16 15:43:21,687 - PremiumPipeline - INFO - ✍️ Generating professional justification for Golden State Warriors@Washington Wizards...
+2026-03-16 15:43:22,009 - PremiumPipeline - ERROR - ❌ Pipeline failed: Error executing plan: Error sending backfill request to compactor: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+Traceback (most recent call last):
+  File "c:\Users\Владелец\Desktop\nba\run_premium_pipeline.py", line 43, in main
+    justification = await selector.generate_justification(pick)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Владелец\Desktop\nba\engine\selector.py", line 245, in generate_justification
+    context = intel.vector_store.query_context(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Владелец\Desktop\nba\engine\vector_store.py", line 79, in query_context
+    results = self.collection.query(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Владелец\AppData\Local\Programs\Python\Python311\Lib\site-packages\chromadb\api\models\Collection.py", line 263, in query
+    query_results = self._client._query(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Владелец\AppData\Local\Programs\Python\Python311\Lib\site-packages\chromadb\api\rust.py", line 552, in _query
+    rust_response = self.bindings.query(
+                    ^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Error executing plan: Error sending backfill request to compactor: Error constructing hnsw segment reader: Error creating hnsw segment reader: Error loading hnsw index
+2026-03-16 15:43:47,376 - PremiumPipeline - INFO - 🚀 Starting Premium Selection Pipeline (Full Run)...
+2026-03-16 15:43:47,378 - engine.selector - INFO - [selector] Starting Parallel Intelligence Phase...
+2026-03-16 15:43:47,403 - engine.odds_monitor - INFO - [odds_monitor] Updated odds for 8 games.
+2026-03-16 15:43:47,404 - engine.selector - INFO - [selector] Gathered 8 analysis tasks. Running...
+2026-03-16 15:43:50,721 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:50,722 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:50,747 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:50,747 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:50,781 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:50,785 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:50,829 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:50,854 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:50,916 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:50,921 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,924 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,925 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,926 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,940 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,983 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,993 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,994 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:43:50,997 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,039 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:51,040 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,040 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,041 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,041 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:51,071 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:51,160 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,161 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,190 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:51,264 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:51,286 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:51,399 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,458 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:51,732 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,825 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:51,961 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:51,992 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:52,020 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:52,069 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:52,215 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:52,230 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:52,304 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:52,528 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:52,742 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:52,943 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:52,944 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:52,944 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:52,945 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:53,186 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:53,295 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:53,411 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:43:53,412 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:43:53,526 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:53,587 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:53,690 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:53,729 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,731 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,732 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,732 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,733 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,734 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,735 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:53,736 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:53,954 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:53,954 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:43:54,150 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:43:54,185 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:43:54,775 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:54,861 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:54,982 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:54,987 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:43:55,159 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:43:57,289 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,290 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,317 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,721 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,725 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,831 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:57,843 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:43:59,308 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:44:00,395 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,397 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,397 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,398 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,398 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,398 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,399 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:00,400 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:01,219 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 25.009531575s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2026-03-16 15:44:01,220 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 25.009470052s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2026-03-16 15:44:01,221 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 25.009607338s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2026-03-16 15:44:01,222 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 25.009440478s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2026-03-16 15:44:01,232 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 25.009622044s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 25
+}
+]
+2026-03-16 15:44:01,249 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:44:01,342 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 24.882502195s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-03-16 15:44:01,345 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 24.879136695s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-03-16 15:44:01,348 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 24.877065023s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-03-16 15:44:01,351 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 24.875684212s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-03-16 15:44:01,360 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 24.865101391s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 24
+}
+]
+2026-03-16 15:44:01,551 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit.  [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2026-03-16 15:44:01,918 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit.  [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2026-03-16 15:44:01,979 - engine.vector_store - INFO - [VectorStore] Added 10 context chunks for game dallas_mavericks_at_new_orleans_pelicans
+2026-03-16 15:44:04,140 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Los Angeles Lakers @ Houston Rockets: 0.15 (Value: True)
+2026-03-16 15:44:04,489 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Golden State Warriors @ Washington Wizards: -0.65 (Value: False)
+2026-03-16 15:44:05,129 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Orlando Magic @ Atlanta Hawks: 0.15 (Value: False)
+2026-03-16 15:44:05,179 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Phoenix Suns @ Boston Celtics: 0.65 (Value: False)
+2026-03-16 15:44:05,581 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Memphis Grizzlies @ Chicago Bulls: 0.35 (Value: True)
+2026-03-16 15:44:05,834 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Dallas Mavericks @ New Orleans Pelicans: 0.65 (Value: False)
+2026-03-16 15:44:05,835 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: San Antonio Spurs @ Los Angeles Clippers: -0.65 (Value: False)
+2026-03-16 15:44:06,522 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Portland Trail Blazers @ Brooklyn Nets: -0.55 (Value: True)
+2026-03-16 15:44:06,591 - engine.selector - INFO - [selector] Intelligence Phase complete. 4 items in report.
+2026-03-16 15:44:06,592 - PremiumPipeline - INFO - ✅ Intelligence Phase complete. Analyzed 4 games.
+2026-03-16 15:44:06,592 - engine.selector - INFO - [selector] Selecting Premium Picks...
+2026-03-16 15:44:06,603 - PremiumPipeline - INFO - 🔥 Selected 2 premium picks!
+2026-03-16 15:44:06,604 - PremiumPipeline - INFO - ✍️ Generating professional justification for Orlando Magic@Atlanta Hawks...
+2026-03-16 15:44:07,574 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:44:07,701 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:44:07,786 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:44:07,787 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:44:07,838 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:44:08,079 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/atlantahawks/hot/.rss
+2026-03-16 15:44:08,079 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/orlandomagic/hot/.rss
+2026-03-16 15:44:08,258 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:44:08,643 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:44:08,941 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:44:09,008 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:44:10,920 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:44:17,401 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:17,645 - engine.vector_store - ERROR - [VectorStore] Embedding error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 8.58890617s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/embed_content_free_tier_requests"
+  quota_id: "EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-embedding-1.0"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 100
+}
+, retry_delay {
+  seconds: 8
+}
+]
+2026-03-16 15:44:21,220 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Orlando Magic @ Atlanta Hawks: 0.15 (Value: False)
+2026-03-16 15:44:26,891 - PremiumPipeline - INFO - 📤 Posting to channel @nbagrbb...
+2026-03-16 15:44:27,974 - engine.selector - INFO - [selector] Posted to channel: @nbagrbb
+2026-03-16 15:44:27,991 - engine.selector - INFO - [selector] Marked prediction 34 as published.
+2026-03-16 15:44:28,025 - engine.selector - INFO - [selector] Triggered Mini App sync via API.
+2026-03-16 15:44:28,030 - PremiumPipeline - INFO - ✍️ Generating professional justification for Los Angeles Lakers@Houston Rockets...
+2026-03-16 15:44:28,385 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-631' coro=<sync() done, defined at c:\Users\Владелец\Desktop\nba\sync_to_mini_app.py:95> exception=OperationalError('no such table: predictions')>
+Traceback (most recent call last):
+  File "c:\Users\Владелец\Desktop\nba\sync_to_mini_app.py", line 105, in sync
+    cursor.execute("""
+sqlite3.OperationalError: no such table: predictions
+2026-03-16 15:44:28,998 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:44:29,000 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.cbssports.com/rss/external/nba/
+2026-03-16 15:44:29,116 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.si.com/nba/.rss
+2026-03-16 15:44:29,118 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/lakers/hot/.rss
+2026-03-16 15:44:29,118 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/rockets/hot/.rss
+2026-03-16 15:44:29,118 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/NBA_Draft/search/.rss?q=Los%20Angeles%20Lakers&sort=new&t=week
+2026-03-16 15:44:29,118 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/nba/search/.rss?q=Houston%20Rockets&sort=hot&t=day
+2026-03-16 15:44:29,119 - data.insights - WARNING - [fetch-rss] HTTP 403 for https://bleacherreport.com/articles/feed/nba
+2026-03-16 15:44:29,120 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/NBA_Draft/search/.rss?q=Houston%20Rockets&sort=new&t=week
+2026-03-16 15:44:29,121 - data.insights - WARNING - [fetch-rss] HTTP 429 for https://www.reddit.com/r/nba/search/.rss?q=Los%20Angeles%20Lakers&sort=hot&t=day
+2026-03-16 15:44:29,275 - httpx - INFO - HTTP Request: GET https://www.rotowire.com/basketball/injury-report.php "HTTP/1.1 200 OK"
+2026-03-16 15:44:29,875 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.dimers.com/rss
+2026-03-16 15:44:30,044 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://hoopshype.com/feed/
+2026-03-16 15:44:30,110 - data.insights - WARNING - [fetch-rss] HTTP 404 for https://www.nbcsports.com/nba/news/rss
+2026-03-16 15:44:30,684 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/possessions-per-game "HTTP/1.1 200 OK"
+2026-03-16 15:44:32,506 - httpx - INFO - HTTP Request: GET https://www.teamrankings.com/nba/stat/defensive-efficiency "HTTP/1.1 200 OK"
+2026-03-16 15:44:39,387 - data.insights - ERROR - [fetch-rss] Error fetching https://www.covers.com/rss/nba: 
+2026-03-16 15:44:40,022 - engine.vector_store - INFO - [VectorStore] Added 7 context chunks for game los_angeles_lakers_at_houston_rockets
+2026-03-16 15:44:44,144 - engine.intelligence - INFO - [intelligence] RAG Verdict for NBA: Los Angeles Lakers @ Houston Rockets: 0.45 (Value: True)
+2026-03-16 15:44:50,247 - PremiumPipeline - INFO - 📤 Posting to channel @nbagrbb...
+2026-03-16 15:44:51,356 - engine.selector - INFO - [selector] Posted to channel: @nbagrbb
+2026-03-16 15:44:51,363 - engine.selector - INFO - [selector] Marked prediction 40 as published.
+2026-03-16 15:44:51,364 - engine.selector - INFO - [selector] Triggered Mini App sync via API.
+2026-03-16 15:44:51,365 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-702' coro=<sync() done, defined at c:\Users\Владелец\Desktop\nba\sync_to_mini_app.py:95> exception=OperationalError('no such table: predictions')>
+Traceback (most recent call last):
+  File "c:\Users\Владелец\Desktop\nba\sync_to_mini_app.py", line 105, in sync
+    cursor.execute("""
+sqlite3.OperationalError: no such table: predictions
