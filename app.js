@@ -53,7 +53,7 @@ function renderMatches() {
         card.className = "glass-card rounded-2xl overflow-hidden group cursor-pointer active:scale-[0.98] transition-all mb-4";
         card.onclick = () => showMatchDetails(match.id);
         
-        const edgeColor = match.edge > 0.12 ? 'text-primary' : (match.edge > 0.1 ? 'text-emerald-400' : 'text-slate-400');
+        const edgeColor = match.edge > 12 ? 'text-primary' : (match.edge > 10 ? 'text-emerald-400' : 'text-slate-400');
 
         card.innerHTML = `
             <div class="p-5 space-y-4">
@@ -61,7 +61,7 @@ function renderMatches() {
                     <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">${match.away_team} @ ${match.home_team}</h3>
                     <div class="text-right">
                         <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest mb-1">Edge</p>
-                        <p class="${edgeColor} text-lg font-bold">+${Math.round(match.edge * 1000) / 10}%</p>
+                        <p class="${edgeColor} text-lg font-bold">+${Math.round(match.edge * 10) / 10}%</p>
                     </div>
                 </div>
                 <div class="flex items-center justify-between py-3 border-y border-white/5">
@@ -88,14 +88,14 @@ function showMatchDetails(matchId) {
     const match = allMatches.find(m => m.id === matchId);
     if (!match) return;
 
-    document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 1000) / 10}%`;
+    document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 10) / 10}%`;
     document.getElementById('detail-odds').innerText = match.odds;
     const sign = (match.line && match.line > 0) ? '+' : '';
     const lineStr = match.line ? ` (${sign}${match.line})` : '';
     document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
     
     const desc = document.querySelector('#view-details p.text-slate-300');
-    if (desc) desc.innerText = match.intel_summary || "Анализ матча формируется на основе нейросетевых данных NotebookLM и рыночных аномалий.";
+    if (desc) desc.innerText = match.intel_summary || "Анализ матча сформирован автономными скрапперами на основе рыночных аномалий и инсайдерских потоков данных.";
 
     const title = document.querySelector('#view-details h1');
     if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
