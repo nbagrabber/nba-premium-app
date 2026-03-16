@@ -197,7 +197,10 @@ function renderHistory(history) {
         item.innerHTML = `
             <div class="space-y-1">
                 <p class="text-xs font-bold text-white">${match.away_team} @ ${match.home_team}</p>
-                <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">${match.commence_time_display || ''}</p>
+                <div class="flex items-center gap-2">
+                    <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">${match.commence_time_display || ''}</p>
+                    <span class="text-[9px] px-1.5 py-0.5 bg-white/5 rounded text-primary font-mono font-bold">@ ${match.odds || '?.??'}</span>
+                </div>
             </div>
             <div class="flex items-center gap-3">
                 <div class="text-right">
