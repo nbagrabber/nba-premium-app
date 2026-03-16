@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -100,18 +100,18 @@
             <section class="space-y-4">
                 <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Продлить доступ</h3>
                 <div class="grid grid-cols-1 gap-3">
-                    <a href="https://t.me/nbagrabber_bot?start=vip" target="_blank" class="flex items-center justify-between p-4 bg-primary rounded-2xl group active:scale-[0.98] transition-all">
+                    <button onclick="openBot('vip')" class="flex items-center justify-between p-4 bg-primary rounded-2xl group active:scale-[0.98] transition-all w-full text-left">
                         <div class="flex items-center gap-3">
                             <div class="size-10 bg-black/10 rounded-xl flex items-center justify-center text-black">
                                 <span class="material-symbols-outlined font-bold">payments</span>
                             </div>
                             <div class="text-black">
-                                <p class="text-xs font-black uppercase">Магазин подписок</p>
-                                <p class="text-[10px] font-bold opacity-60">Перейти в бота</p>
+                                <p class="text-xs font-black uppercase">Купить VIP</p>
+                                <p class="text-[10px] font-bold opacity-60">Открыть меню выбора тарифа</p>
                             </div>
                         </div>
                         <span class="material-symbols-outlined text-black">chevron_right</span>
-                    </a>
+                    </button>
                 </div>
             </section>
         </div>
@@ -171,8 +171,10 @@
             <!-- Metrics -->
             <div class="grid grid-cols-1 gap-4">
                 <div class="glass-card p-6 rounded-3xl border-b-4 border-primary/20 relative overflow-hidden">
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1">Общая прибыль (Units)</p>
-                    <h3 id="stat-profit" class="text-4xl font-mono font-bold text-white tracking-tighter">0.00</h3>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1">Статистика (Wins / Losses)</p>
+                    <div class="flex items-baseline gap-2">
+                        <h3 id="stat-record" class="text-4xl font-mono font-bold text-white tracking-tighter">0-0</h3>
+                    </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="glass p-5 rounded-3xl border border-white/5">

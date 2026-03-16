@@ -132,22 +132,24 @@ async function loadStats() {
     }
 }
 
+function openBot(command = '') {
+    const botUrl = `https://t.me/nbagrabber_bot${command ? '?start=' + command : ''}`;
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.openTelegramLink(botUrl);
+    } else {
+        window.open(botUrl, '_blank');
+    }
+}
+
 function renderStats(stats) {
-    const profitEl = document.getElementById('stat-profit');
+    const recordEl = document.getElementById('stat-record');
     const roiEl = document.getElementById('stat-roi');
     const winRateEl = document.getElementById('stat-winrate');
-    const totalEl = document.getElementById('stat-total');
-    const winsEl = document.getElementById('stat-wins');
-    const lossesEl = document.getElementById('stat-losses');
-    const streakEl = document.getElementById('stat-streak');
     const updateTimeEl = document.getElementById('last-update-time');
 
-    if (profitEl) profitEl.innerText = stats.profit !== undefined ? stats.profit.toFixed(2) : "0.00";
+    if (recordEl) recordEl.innerText = `${stats.wins || 0}-${stats.losses || 0}`;
     if (roiEl) roiEl.innerText = (stats.roi || 0) + "%";
     if (winRateEl) winRateEl.innerText = (stats.win_rate || 0) + "%";
-    if (totalEl) totalEl.innerText = stats.total_bets || 0;
-    if (winsEl) winsEl.innerText = stats.wins || 0;
-    if (lossesEl) lossesEl.innerText = stats.losses || 0;
     if (updateTimeEl) updateTimeEl.innerText = "Обновлено: " + (stats.last_update || "--:--");
 
     const trendEl = document.getElementById('profit-trend');
