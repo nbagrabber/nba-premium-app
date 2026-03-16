@@ -1,55 +1,10 @@
 {
-  "total_bets": 7,
-  "wins": 5,
-  "losses": 2,
-  "win_rate": 71.4,
-  "profit": 2.2,
-  "roi": 31.4,
-  "streak": [
-    "W",
-    "L",
-    "W",
-    "W",
-    "L",
-    "W",
-    "W"
-  ],
-  "history": [
-    {
-      "date": "09.03",
-      "profit": 0.95,
-      "match": "Warriors@Lakers"
-    },
-    {
-      "date": "10.03",
-      "profit": -0.05,
-      "match": "Clippers@Suns"
-    },
-    {
-      "date": "11.03",
-      "profit": 0.8,
-      "match": "Heat@Celtics"
-    },
-    {
-      "date": "12.03",
-      "profit": 1.5,
-      "match": "Mavericks@Nuggets"
-    },
-    {
-      "date": "13.03",
-      "profit": 0.5,
-      "match": "Knicks@Bucks"
-    },
-    {
-      "date": "14.03",
-      "profit": 1.15,
-      "match": "Bulls@76ers"
-    },
-    {
-      "date": "15.03",
-      "profit": 2.2,
-      "match": "Rockets@Kings"
-    }
-  ],
-  "last_update": "16.03 03:53"
+  "total_bets": 0,
+  "wins": 0,
+  "losses": 0,
+  "win_rate": 0,
+  "profit": 0.0,
+  "roi": 0.0,
+  "streak": [],
+  "history": []
 }
