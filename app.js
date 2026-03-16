@@ -111,6 +111,58 @@ function closeMatchDetails() {
     document.body.style.overflow = ''; 
 }
 
+async function loadStats() {
+    try {
+        const response = await fetch(`data/stats.json?v=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Failed to load stats');
+        const stats = await response.json();
+        renderStats(stats);
+    } catch (err) {
+        console.error('Error loading stats:', err);
+    }
+}
+
+function renderStats(stats) {
+    const profitEl = document.getElementById('stat-profit');
+    const roiEl = document.getElementById('stat-roi');
+    const winRateEl = document.getElementById('stat-winrate');
+    const totalEl = document.getElementById('stat-total');
+    const winsEl = document.getElementById('stat-wins');
+    const lossesEl = document.getElementById('stat-losses');
+    const streakEl = document.getElementById('stat-streak');
+    const updateTimeEl = document.getElementById('last-update-time');
+
+    if (profitEl) profitEl.innerText = stats.profit !== undefined ? stats.profit.toFixed(2) : "0.00";
+    if (roiEl) roiEl.innerText = (stats.roi || 0) + "%";
+    if (winRateEl) winRateEl.innerText = (stats.win_rate || 0) + "%";
+    if (totalEl) totalEl.innerText = stats.total_bets || 0;
+    if (winsEl) winsEl.innerText = stats.wins || 0;
+    if (lossesEl) lossesEl.innerText = stats.losses || 0;
+    if (updateTimeEl) updateTimeEl.innerText = "Обновлено: " + (stats.last_update || "--:--");
+
+    const trendEl = document.getElementById('profit-trend');
+    if (trendEl && stats.roi !== undefined) {
+        trendEl.innerText = (stats.roi >= 0 ? "+" : "") + stats.roi + "%";
+        trendEl.className = stats.roi >= 0 ? "text-sm font-bold text-emerald-400" : "text-sm font-bold text-rose-500";
+    }
+
+    if (streakEl && stats.streak) {
+        streakEl.innerHTML = '';
+        stats.streak.forEach(s => {
+            const dot = document.createElement('div');
+            dot.className = `size-2 rounded-full ${s === 'W' ? 'bg-emerald-400 scale-125' : 'bg-rose-500'} shadow-lg`;
+            if (s === 'W') dot.classList.add('animate-pulse');
+            streakEl.appendChild(dot);
+        });
+        // Fill remaining dots if less than 10
+        for (let i = stats.streak.length; i < 10; i++) {
+            const dot = document.createElement('div');
+            dot.className = "size-2 rounded-full bg-white/10";
+            streakEl.appendChild(dot);
+        }
+    }
+}
+
 function switchView(viewId) {
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
@@ -132,7 +184,9 @@ function switchView(viewId) {
         }
     });
 
-    if (viewId === 'predictions') renderMatches();
+    if (viewId === 'predictions') loadMatches();
+    if (viewId === 'stats') loadStats();
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -143,21 +197,6 @@ if (window.Telegram && window.Telegram.WebApp) {
     webapp.expand();
     webapp.ready();
     webapp.headerColor = '#000000';
-
-    const user = webapp.initDataUnsafe.user;
-    if (user) {
-        const nameEl = document.getElementById('user-name');
-        if (nameEl) {
-            // Priority: Username -> First+Last Name -> First Name
-            nameEl.innerText = user.username ? ('@' + user.username) : (user.first_name + (user.last_name ? ' ' + user.last_name : ''));
-        }
-        if (user.photo_url) {
-            const avatarDiv = document.querySelector('#view-profile .bg-cover');
-            if (avatarDiv) {
-                avatarDiv.style.backgroundImage = `url('${user.photo_url}')`;
-            }
-        }
-    }
 }
 
 // Add haptic feedback simulation

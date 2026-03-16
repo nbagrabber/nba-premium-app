@@ -101,66 +101,82 @@
             </section>
         </div>
 
-        <!-- View: Profile -->
-        <div id="view-profile" class="view px-4 py-10 space-y-10 page-transition">
-            <div class="flex flex-col items-center text-center gap-6">
-                <div class="relative">
-                    <div class="size-24 rounded-full border-2 border-primary/40 p-1 bg-gradient-to-tr from-primary/20 to-transparent">
-                        <div class="w-full h-full rounded-full bg-cover bg-center shadow-2xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBw5rcn0hn9YrKblsTo6D5Ym7bsKp47bzms3FKnYixtkFFdJcHQ9b_C4fARge-vjYcqwBZqEayZRKLvrmHF1CWpl5sEVPLXQpl6yBS-LqCIu-PqgJTUKRqblBvFhc3Tc30IGKDa0U8KwSaoyO5wJdc1dgE7vdUJM6naB0DqmMtw_6N7WKfLLAZPvvpX6yfnN8Y_aEgG6xgEZar9iYAH7FhZuJgIyna3-ausY1PhLhqkJB_rGhFB0gKqpf5_bHA0qGx78J8nijEw6M7r')"></div>
-                    </div>
-                    <div class="absolute -bottom-1 -right-1 bg-primary text-black rounded-full size-7 border-4 border-black flex items-center justify-center">
-                        <span class="material-symbols-outlined text-lg font-bold">check</span>
+        <!-- View: Statistics (Formerly Profile) -->
+        <div id="view-stats" class="view px-4 py-8 space-y-8 page-transition">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">analytics</span>
+                    Статистика
+                </h2>
+                <div class="px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
+                    <span id="last-update-time" class="text-[9px] font-bold text-primary uppercase font-mono">Обновлено: --:--</span>
+                </div>
+            </div>
+
+            <!-- Main Metrics -->
+            <div class="grid grid-cols-1 gap-4">
+                <div class="glass-card p-6 rounded-3xl border-b-4 border-primary/20 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 size-32 bg-primary/5 rounded-full blur-3xl"></div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1">Общая прибыль (Units)</p>
+                    <div class="flex items-baseline gap-2">
+                        <h3 id="stat-profit" class="text-5xl font-mono font-bold text-white tracking-tighter">0.00</h3>
+                        <span id="profit-trend" class="text-sm font-bold text-emerald-400">--%</span>
                     </div>
                 </div>
-                <div>
-                    <h2 id="user-name" class="text-2xl font-bold text-white">Игрок</h2>
-                    <div class="mt-2 inline-flex items-center gap-2 px-4 py-1.5 glass border-primary/20 rounded-full">
-                        <span class="material-symbols-outlined text-primary text-sm">workspace_premium</span>
-                        <span id="user-status" class="text-xs font-bold text-primary uppercase tracking-widest">Premium</span>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass p-5 rounded-3xl space-y-1 border border-white/5">
+                        <p class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">ROI %</p>
+                        <p id="stat-roi" class="text-2xl font-mono font-bold text-primary">0.0%</p>
+                    </div>
+                    <div class="glass p-5 rounded-3xl space-y-1 border border-white/5">
+                        <p class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Win Rate</p>
+                        <p id="stat-winrate" class="text-2xl font-mono font-bold text-white">0%</p>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-                <div class="glass p-5 rounded-2xl space-y-1">
-                    <p class="text-[9px] uppercase tracking-widest text-slate-400">Результаты</p>
-                    <p class="text-2xl font-mono font-bold text-white"><span class="text-emerald-400">142</span> / <span class="text-rose-500">86</span></p>
+            <!-- Detailed Stats -->
+            <section class="space-y-4">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Результативность</h3>
+                <div class="glass p-5 rounded-3xl border border-white/5 flex items-center justify-around text-center">
+                    <div>
+                        <p class="text-[9px] text-slate-500 font-bold uppercase mb-1">Всего</p>
+                        <p id="stat-total" class="text-xl font-mono font-bold text-white">0</p>
+                    </div>
+                    <div class="w-px h-8 bg-white/5"></div>
+                    <div>
+                        <p class="text-[9px] text-emerald-500 font-bold uppercase mb-1">Побед</p>
+                        <p id="stat-wins" class="text-xl font-mono font-bold text-emerald-400">0</p>
+                    </div>
+                    <div class="w-px h-8 bg-white/5"></div>
+                    <div>
+                        <p class="text-[9px] text-rose-500 font-bold uppercase mb-1">Луз</p>
+                        <p id="stat-losses" class="text-xl font-mono font-bold text-rose-500">0</p>
+                    </div>
                 </div>
-                <div class="glass p-5 rounded-2xl space-y-1">
-                    <p class="text-[9px] uppercase tracking-widest text-slate-400">ROI за сезон</p>
-                    <p class="text-2xl font-mono font-bold text-primary">+18.4%</p>
-                </div>
-            </div>
+            </section>
 
-            <nav class="space-y-2">
-                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
-                    <div class="flex items-center gap-4">
-                        <div class="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined">payments</span>
-                        </div>
-                        <span class="font-semibold text-slate-200">Подписка и платежи</span>
-                    </div>
-                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
-                </button>
-                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
-                    <div class="flex items-center gap-4">
-                        <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400">
-                            <span class="material-symbols-outlined">settings_suggest</span>
-                        </div>
-                        <span class="font-semibold text-slate-200">Настройки ассистента</span>
-                    </div>
-                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
-                </button>
-                <button class="w-full glass p-4 rounded-2xl flex items-center justify-between group active:bg-white/5 transition-colors">
-                    <div class="flex items-center gap-4">
-                        <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400">
-                            <span class="material-symbols-outlined">support_agent</span>
-                        </div>
-                        <span class="font-semibold text-slate-200">Поддержка</span>
-                    </div>
-                    <span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">chevron_right</span>
-                </button>
-            </nav>
+            <!-- Current Form / Streak -->
+            <section class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Текущая форма</h3>
+                    <span class="text-[9px] text-slate-500">Last 10 games</span>
+                </div>
+                <div id="stat-streak" class="flex gap-2 items-center justify-between p-2">
+                    <!-- Streak dots will be here -->
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                    <div class="size-2 rounded-full bg-white/10"></div>
+                </div>
+            </section>
         </div>
 
         <!-- View: Match Details (Detail Overlay) -->
@@ -235,11 +251,11 @@
                 </div>
                 <span class="text-[10px] font-bold uppercase tracking-tight">Аналитика</span>
             </button>
-            <button onclick="switchView('profile')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="profile">
+            <button onclick="switchView('stats')" class="nav-btn flex flex-col items-center gap-1 text-slate-500 transition-colors" data-view="stats">
                 <div class="p-1">
-                    <span class="material-symbols-outlined">person</span>
+                    <span class="material-symbols-outlined">bar_chart</span>
                 </div>
-                <span class="text-[10px] font-bold uppercase tracking-tight">Профиль</span>
+                <span class="text-[10px] font-bold uppercase tracking-tight">Статистика</span>
             </button>
         </div>
     </nav>
