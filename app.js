@@ -95,7 +95,17 @@ function showMatchDetails(matchId) {
     document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
     
     const desc = document.querySelector('#view-details p.text-slate-300');
-    if (desc) desc.innerText = match.intel_summary || "Анализ матча сформирован автономными скрапперами на основе рыночных аномалий и инсайдерских потоков данных.";
+    if (desc) {
+        // Clean and format summary
+        const summary = match.intel_summary 
+            ? match.intel_summary.replace(/<br>/g, '\n').replace(/<p>/g, '').replace(/<\/p>/g, '\n')
+            : "Анализ матча сформирован автономными скрапперами на основе рыночных аномалий и инсайдерских данных.";
+        
+        desc.innerText = summary;
+        desc.style.whiteSpace = 'pre-wrap';
+        desc.style.fontSize = '13px';
+        desc.style.lineHeight = '1.6';
+    }
 
     const title = document.querySelector('#view-details h1');
     if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
@@ -254,6 +264,45 @@ function switchView(viewId) {
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+
+function showMatchDetails(matchId) {
+    const match = allMatches.find(m => m.id === matchId);
+    if (!match) return;
+
+    document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 10) / 10}%`;
+    document.getElementById('detail-odds').innerText = match.odds;
+    const sign = (match.line && match.line > 0) ? '+' : '';
+    const lineStr = match.line ? ` (${sign}${match.line})` : '';
+    document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
+    
+    const desc = document.querySelector('#view-details p.text-slate-300');
+    if (desc) {
+        // Clean and format summary
+        const summary = match.intel_summary 
+            ? match.intel_summary.replace(/<br>/g, '\n').replace(/<p>/g, '').replace(/<\/p>/g, '\n')
+            : "Анализ матча сформирован автономными скрапперами на основе рыночных аномалий и инсайдерских данных.";
+        
+        desc.innerText = summary;
+        desc.style.whiteSpace = 'pre-wrap';
+        desc.style.fontSize = '13px';
+        desc.style.lineHeight = '1.6';
+    }
+
+    const title = document.querySelector('#view-details h1');
+    if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
+
+    const detailsView = document.getElementById('view-details');
+    detailsView.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeMatchDetails() {
+    const detailsView = document.getElementById('view-details');
+    detailsView.classList.remove('active');
+    document.body.style.overflow = ''; 
+}
+
 
 loadMatches();
 
