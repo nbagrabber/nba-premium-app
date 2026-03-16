@@ -249,10 +249,8 @@ function switchView(viewId) {
     });
 
     if (viewId === 'predictions') loadMatches();
-    if (viewId === 'stats') {
-        loadStats();
-        loadHistory();
-    }
+    if (viewId === 'stats') loadStats();
+    if (viewId === 'history') loadHistory();
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
