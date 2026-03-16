@@ -1,10 +1,37 @@
 {
-  "total_bets": 0,
-  "wins": 0,
+  "total_bets": 4,
+  "wins": 4,
   "losses": 0,
-  "win_rate": 0,
-  "profit": 0.0,
-  "roi": 0.0,
-  "streak": [],
-  "history": []
+  "win_rate": 100.0,
+  "profit": 8.64,
+  "roi": 216.0,
+  "streak": [
+    "W",
+    "W",
+    "W",
+    "W"
+  ],
+  "history": [
+    {
+      "date": "15.03",
+      "profit": 1.52,
+      "match": "Detroit Pistons@Toronto Raptors"
+    },
+    {
+      "date": "15.03",
+      "profit": 3.04,
+      "match": "Detroit Pistons@Toronto Raptors"
+    },
+    {
+      "date": "15.03",
+      "profit": 5.84,
+      "match": "Portland Trail Blazers@Philadelphia 76ers"
+    },
+    {
+      "date": "15.03",
+      "profit": 8.64,
+      "match": "Portland Trail Blazers@Philadelphia 76ers"
+    }
+  ],
+  "last_update": "16.03 12:39"
 }
