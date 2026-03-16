@@ -1,12 +1,11 @@
 {
-  "total_bets": 4,
-  "wins": 4,
+  "total_bets": 3,
+  "wins": 3,
   "losses": 0,
   "win_rate": 100.0,
-  "profit": 8.64,
-  "roi": 216.0,
+  "profit": 4.97,
+  "roi": 165.7,
   "streak": [
-    "W",
     "W",
     "W",
     "W"
@@ -14,24 +13,19 @@
   "history": [
     {
       "date": "15.03",
-      "profit": 1.52,
+      "profit": 0.65,
+      "match": "Utah Jazz@Sacramento Kings"
+    },
+    {
+      "date": "15.03",
+      "profit": 2.17,
       "match": "Detroit Pistons@Toronto Raptors"
     },
     {
       "date": "15.03",
-      "profit": 3.04,
-      "match": "Detroit Pistons@Toronto Raptors"
-    },
-    {
-      "date": "15.03",
-      "profit": 5.84,
-      "match": "Portland Trail Blazers@Philadelphia 76ers"
-    },
-    {
-      "date": "15.03",
-      "profit": 8.64,
+      "profit": 4.97,
       "match": "Portland Trail Blazers@Philadelphia 76ers"
     }
   ],
-  "last_update": "16.03 12:39"
+  "last_update": "16.03 12:41"
 }
