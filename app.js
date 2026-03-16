@@ -163,6 +163,56 @@ function renderStats(stats) {
     }
 }
 
+async function loadHistory() {
+    try {
+        const response = await fetch(`data/history.json?v=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Failed to load history');
+        const history = await response.json();
+        renderHistory(history);
+    } catch (err) {
+        console.error('Error loading history:', err);
+        const histList = document.getElementById('history-list');
+        if (histList) histList.innerHTML = '<div class="glass p-4 rounded-2xl text-center text-[10px] text-slate-500">История временно недоступна</div>';
+    }
+}
+
+function renderHistory(history) {
+    const list = document.getElementById('history-list');
+    if (!list) return;
+    list.innerHTML = '';
+
+    if (history.length === 0) {
+        list.innerHTML = '<div class="glass p-4 rounded-2xl text-center text-[10px] text-slate-500">Нет завершенных матчей</div>';
+        return;
+    }
+
+    history.forEach(match => {
+        const item = document.createElement('div');
+        const isWin = match.status === 'WIN';
+        const statusColor = isWin ? 'text-emerald-400' : 'text-rose-500';
+        const statusBg = isWin ? 'bg-emerald-500/10' : 'bg-rose-500/10';
+        const statusIcon = isWin ? 'check_circle' : 'cancel';
+
+        item.className = "glass p-4 rounded-2xl flex items-center justify-between border border-white/5";
+        item.innerHTML = `
+            <div class="space-y-1">
+                <p class="text-xs font-bold text-white">${match.away_team} @ ${match.home_team}</p>
+                <p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest">${match.commence_time_display || ''}</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="text-right">
+                    <p class="text-[9px] text-slate-500 uppercase font-bold mb-0.5">Pick: ${match.pick}</p>
+                    <p class="text-xs font-mono font-bold text-slate-200">${match.result_score || '--:--'}</p>
+                </div>
+                <div class="size-8 rounded-full ${statusBg} flex items-center justify-center ${statusColor}">
+                    <span class="material-symbols-outlined text-lg">${statusIcon}</span>
+                </div>
+            </div>
+        `;
+        list.appendChild(item);
+    });
+}
+
 function switchView(viewId) {
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
@@ -185,7 +235,10 @@ function switchView(viewId) {
     });
 
     if (viewId === 'predictions') loadMatches();
-    if (viewId === 'stats') loadStats();
+    if (viewId === 'stats') {
+        loadStats();
+        loadHistory();
+    }
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
