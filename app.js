@@ -149,20 +149,13 @@ function openBot(command = '') {
 
 function renderStats(stats) {
     const recordEl = document.getElementById('stat-record');
-    const roiEl = document.getElementById('stat-roi');
     const winRateEl = document.getElementById('stat-winrate');
     const updateTimeEl = document.getElementById('last-update-time');
 
     if (recordEl) recordEl.innerText = `${stats.wins || 0}-${stats.losses || 0}`;
-    if (roiEl) roiEl.innerText = (stats.roi || 0) + "%";
     if (winRateEl) winRateEl.innerText = (stats.win_rate || 0) + "%";
     if (updateTimeEl) updateTimeEl.innerText = "Обновлено: " + (stats.last_update || "--:--");
 
-    const trendEl = document.getElementById('profit-trend');
-    if (trendEl && stats.roi !== undefined) {
-        trendEl.innerText = (stats.roi >= 0 ? "+" : "") + stats.roi + "%";
-        trendEl.className = stats.roi >= 0 ? "text-sm font-bold text-emerald-400" : "text-sm font-bold text-rose-500";
-    }
 
     if (streakEl && stats.streak) {
         streakEl.innerHTML = '';

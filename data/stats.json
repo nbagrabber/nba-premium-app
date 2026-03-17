@@ -3,12 +3,28 @@
   "wins": 3,
   "losses": 0,
   "win_rate": 100.0,
-  "profit": 2.7,
-  "roi": 90.0,
-  "last_update": "22:06",
+  "profit": 4.97,
   "streak": [
     "W",
     "W",
     "W"
-  ]
+  ],
+  "history": [
+    {
+      "date": "15.03",
+      "profit": 0.65,
+      "match": "Utah Jazz@Sacramento Kings"
+    },
+    {
+      "date": "15.03",
+      "profit": 2.17,
+      "match": "Detroit Pistons@Toronto Raptors"
+    },
+    {
+      "date": "15.03",
+      "profit": 4.97,
+      "match": "Portland Trail Blazers@Philadelphia 76ers"
+    }
+  ],
+  "last_update": "17.03 16:09"
 }
