@@ -1,48 +1,42 @@
 {
-  "total_bets": 6,
-  "wins": 6,
-  "losses": 0,
-  "win_rate": 100.0,
-  "profit": 6.69,
+  "total_bets": 5,
+  "wins": 4,
+  "losses": 1,
+  "win_rate": 80.0,
+  "profit": 4.72,
   "streak": [
     "W",
     "W",
     "W",
     "W",
-    "W",
-    "W"
+    "L"
   ],
   "history": [
     {
-      "date": "14.03",
-      "profit": 0.04,
-      "match": "Washington Wizards@Boston Celtics"
-    },
-    {
       "date": "15.03",
-      "profit": 0.69,
+      "profit": 0.65,
       "match": "Utah Jazz@Sacramento Kings"
     },
     {
       "date": "15.03",
-      "profit": 2.21,
+      "profit": 2.17,
       "match": "Detroit Pistons@Toronto Raptors"
     },
     {
       "date": "15.03",
-      "profit": 5.01,
+      "profit": 4.97,
       "match": "Portland Trail Blazers@Philadelphia 76ers"
     },
     {
       "date": "16.03",
-      "profit": 5.76,
+      "profit": 5.72,
       "match": "Orlando Magic@Atlanta Hawks"
     },
     {
       "date": "16.03",
-      "profit": 6.69,
+      "profit": 4.72,
       "match": "Portland Trail Blazers@Brooklyn Nets"
     }
   ],
-  "last_update": "17.03 18:54"
+  "last_update": "17.03 19:08"
 }
