@@ -122,10 +122,12 @@ function closeMatchDetails() {
 }
 
 async function loadStats() {
+    console.log('Fetching stats.json...');
     try {
         const response = await fetch(`data/stats.json?v=${new Date().getTime()}`);
         if (!response.ok) throw new Error('Failed to load stats');
         const stats = await response.json();
+        console.log('Stats data received:', stats);
         renderStats(stats);
     } catch (err) {
         console.error('Error loading stats:', err);
@@ -133,7 +135,11 @@ async function loadStats() {
 }
 
 function openBot(command = '') {
-    const botUrl = `https://t.me/nbagrabber_bot${command ? '?start=' + command : ''}`;
+    const botDomain = 'nbagrabber_bot';
+    const botUrl = `https://t.me/${botDomain}${command ? '?start=' + command : ''}`;
+    
+    console.log('Opening bot via Telegram WebApp link:', botUrl);
+    
     if (window.Telegram && window.Telegram.WebApp) {
         window.Telegram.WebApp.openTelegramLink(botUrl);
     } else {
@@ -311,59 +317,20 @@ function switchView(viewId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-
-function showMatchDetails(matchId) {
-    const match = allMatches.find(m => m.id === matchId);
-    if (!match) return;
-
-    document.getElementById('detail-edge').innerText = `+${Math.round(match.edge * 10) / 10}%`;
-    document.getElementById('detail-odds').innerText = match.odds;
-    const sign = (match.line && match.line > 0) ? '+' : '';
-    const lineStr = match.line ? ` (${sign}${match.line})` : '';
-    document.getElementById('detail-pick').innerText = `${match.pick}${lineStr}`;
-    
-    const desc = document.querySelector('#view-details p.text-slate-300');
-    if (desc) {
-        // Clean and format summary
-        const summary = match.intel_summary 
-            ? match.intel_summary.replace(/<br>/g, '\n').replace(/<p>/g, '').replace(/<\/p>/g, '\n')
-            : "Анализ матча сформирован автономными скрапперами на основе рыночных аномалий и инсайдерских данных.";
-        
-        desc.innerText = summary;
-        desc.style.whiteSpace = 'pre-wrap';
-        desc.style.fontSize = '13px';
-        desc.style.lineHeight = '1.6';
-    }
-
-    const title = document.querySelector('#view-details h1');
-    if (title) title.innerHTML = `${match.away_team} <span class="text-slate-500 text-xl font-light">vs</span> ${match.home_team}`;
-
-    const detailsView = document.getElementById('view-details');
-    detailsView.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
-}
-
-function closeMatchDetails() {
-    const detailsView = document.getElementById('view-details');
-    detailsView.classList.remove('active');
-    document.body.style.overflow = ''; 
-}
-
-
 loadMatches();
 
 if (window.Telegram && window.Telegram.WebApp) {
     const webapp = window.Telegram.WebApp;
     webapp.expand();
-    webapp.ready();
     webapp.headerColor = '#000000';
+    webapp.ready();
 }
 
-// Add haptic feedback simulation
-document.querySelectorAll('button, a').forEach(el => {
-    el.addEventListener('click', () => {
-        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+// Global click handler for haptics
+document.addEventListener('click', (e) => {
+    if (e.target.closest('button, a')) {
+        if (window.Telegram?.WebApp?.HapticFeedback) {
             window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
         }
-    });
+    }
 });
