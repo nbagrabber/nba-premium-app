@@ -1,0 +1,72 @@
+{
+  "James Capers": {
+    "home_bias": 2.7,
+    "total_offset": 0.0,
+    "desc": "Referee Factor: James Capers (Home Win Rate 64.7%). Модификатор форы +2.7 в пользу хозяев."
+  },
+  "Pat O'Connell": {
+    "home_bias": 2.5,
+    "total_offset": 0.0,
+    "desc": "Home Favorite: Pat O'Connell (62.0% WR). +2.5 spread mod."
+  },
+  "Dannica Baroody": {
+    "home_bias": 2.8,
+    "total_offset": 0.0,
+    "desc": "Home Favorite: Dannica Baroody (69.7% WR). +2.8 spread mod."
+  },
+  "Curtis Blair": {
+    "home_bias": 3.2,
+    "total_offset": 0.0,
+    "desc": "Home Favorite: Curtis Blair (64.4% WR). +3.2 spread mod."
+  },
+  "Danielle Scott": {
+    "home_bias": 0.0,
+    "total_offset": 4.5,
+    "desc": "Referee Factor: Danielle Scott (PPG 236.7). Ожидается высокая частота фолов, что благоприятствует ставке на Тотал Больше."
+  },
+  "Marc Davis": {
+    "home_bias": 0.0,
+    "total_offset": 4.5,
+    "desc": "Over Specialist: Marc Davis (236.4 PPG). End-game free throws."
+  },
+  "Andy Nagy": {
+    "home_bias": 0.0,
+    "total_offset": 4.5,
+    "desc": "Over Specialist: Andy Nagy (236.5 PPG). High pace."
+  },
+  "Bill Kennedy": {
+    "home_bias": 0.0,
+    "total_offset": 4.0,
+    "desc": "Over Specialist: Bill Kennedy (235.7 PPG). Technicals/Pace."
+  },
+  "Brian Forte": {
+    "home_bias": 0.0,
+    "total_offset": -5.0,
+    "desc": "Brian Forte в роли Chief Ref (223.3 PPG) — один из самых жестких судей, дающих играть в защите. Сильный сигнал на Under."
+  },
+  "Mark Lindsay": {
+    "home_bias": 0.0,
+    "total_offset": -4.0,
+    "desc": "Under Specialist: Mark Lindsay (226.8 PPG). Defensive focus."
+  },
+  "Scott Foster": {
+    "home_bias": 0.0,
+    "total_offset": -2.5,
+    "desc": "Shield: Scott Foster (233.2 PPG). Tight defense."
+  },
+  "J.D. Ralls": {
+    "home_bias": 0.0,
+    "total_offset": -4.5,
+    "desc": "Under Specialist: J.D. Ralls (225.5 PPG). Slow pace."
+  },
+  "Matt Kallio": {
+    "home_bias": 2.0,
+    "total_offset": 0.0,
+    "desc": "March 2026 Trend: Highly Home Loyal (ATS 24-11). +2.0 to home spread."
+  },
+  "Che Flores": {
+    "home_bias": 0.0,
+    "total_offset": 4.0,
+    "desc": "March 2026 Trend: High Pace (25-15 Over record). +4.0 to total."
+  }
+}
